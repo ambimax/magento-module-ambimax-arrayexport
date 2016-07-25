@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ambimax_ArrayExport>
+            <version>1.0.0</version>
+        </Ambimax_ArrayExport>
+    </modules>
+    <global>
+        <blocks>
+            <ambimax_arrayexport>
+                <class>Ambimax_ArrayExport_Block</class>
+            </ambimax_arrayexport>
+        </blocks>
+        <helpers>
+            <ambimax_arrayexport>
+                <class>Ambimax_ArrayExport_Helper</class>
+            </ambimax_arrayexport>
+        </helpers>
+        <models>
+            <ambimax_arrayexport>
+                <class>Ambimax_ArrayExport_Model</class>
+            </ambimax_arrayexport>
+        </models>
+    </global>
+</config>
