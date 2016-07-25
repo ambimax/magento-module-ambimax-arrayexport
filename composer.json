@@ -1,0 +1,15 @@
+{
+  "name": "ambimax/magento-module-ambimax-arrayexport",
+  "type": "magento-module",
+  "description": "Magento module that lets you export all product as array to be modified and arranged during export",
+  "homepage": "http://www.ambimax.de",
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "authors":[
+    {
+      "name":"Tobias Schifftner",
+      "email":"ts@ambimax.de"
+    }
+  ]
+}
