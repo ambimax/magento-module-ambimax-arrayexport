@@ -8,6 +8,11 @@ class Ambimax_ArrayExport_Model_Export_Entity_Product extends Mage_ImportExport_
     protected $_headerCols = null;
 
     /**
+     * @var string
+     */
+    protected $_eventPrefix = '';
+
+    /**
      * Collects all product information and triggers events for further usage
      *
      * @return string
@@ -50,7 +55,7 @@ class Ambimax_ArrayExport_Model_Export_Entity_Product extends Mage_ImportExport_
         }
         $offsetProducts = 0;
 
-        Mage::dispatchEvent('ambimax_arrayexport_product_before', array());
+        Mage::dispatchEvent($this->getEventPrefix().'ambimax_arrayexport_product_before', array());
 
         while (true) {
             ++$offsetProducts;
@@ -401,7 +406,7 @@ class Ambimax_ArrayExport_Model_Export_Entity_Product extends Mage_ImportExport_
                     $productData[$store] = $rowData;
                 }
 
-                Mage::dispatchEvent('ambimax_arrayexport_product_row', array(
+                Mage::dispatchEvent($this->getEventPrefix().'ambimax_arrayexport_product_row', array(
                     'product_data' => $productData,
                     'header_cols' => $headerCols,
                     'product_count' => $productCount++
@@ -409,7 +414,7 @@ class Ambimax_ArrayExport_Model_Export_Entity_Product extends Mage_ImportExport_
             }
         }
 
-        Mage::dispatchEvent('ambimax_arrayexport_product_after', array(
+        Mage::dispatchEvent($this->getEventPrefix().'ambimax_arrayexport_product_after', array(
             'header_cols' => $headerCols,
             'product_count' => $productCount
         ));
@@ -491,4 +496,25 @@ class Ambimax_ArrayExport_Model_Export_Entity_Product extends Mage_ImportExport_
         return $parentSkus;
     }
 
+    /**
+     * Returns event prefix
+     *
+     * @return string
+     */
+    public function getEventPrefix()
+    {
+        return (string) $this->_eventPrefix;
+    }
+
+    /**
+     * Set event prefix
+     *
+     * @param string $prefix
+     * @return $this
+     */
+    public function setEventPrefix($prefix = '')
+    {
+        $this->_eventPrefix = $prefix;
+        return $this;
+    }
 }

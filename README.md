@@ -1,7 +1,7 @@
 # ambimax® ArrayExport
 
 Magento module that lets you export all product as array to be
-modified and arranged during export
+modified and arranged during export and saved to csv or any other format
 
 ## Installation
 
@@ -76,7 +76,7 @@ class My_Module_Model_Export {
 }
 ```
 
-### 1.) Add an Observer.php
+### 2.) Add an Observer.php
 
 Create an Observer file in app/code/community/My/Module/Model/Observer.php
 
@@ -108,7 +108,7 @@ class My_Module_Model_Observer {
 }
 ```
 
-## 2.) Add row handler event
+## 3.) Add row handler event
 
 This event is supposed to handle the formation of your data and send
 it to your write adapter
@@ -126,7 +126,7 @@ it to your write adapter
 </events>
 ```
 
-## 3.) Add cronjob to trigger the event
+## 4.) Add cronjob to trigger the event
 
 ```
 <crontab>
