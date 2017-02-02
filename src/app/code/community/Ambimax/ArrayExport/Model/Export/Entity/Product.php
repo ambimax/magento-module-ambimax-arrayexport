@@ -406,6 +406,12 @@ class Ambimax_ArrayExport_Model_Export_Entity_Product extends Mage_ImportExport_
                     $productData[$store] = $rowData;
                 }
 
+                // @todo Last product is somehow added twice - ignore
+                if(isset($lastSku) && $lastSku == $productData['default']['sku']) {
+                    continue;
+                }
+                $lastSku = $productData['default']['sku'];
+
                 Mage::dispatchEvent($this->getEventPrefix().'ambimax_arrayexport_product_row', array(
                     'product_data' => $productData,
                     'header_cols' => $headerCols,
