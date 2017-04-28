@@ -21,6 +21,7 @@ class Ambimax_ArrayExport_Model_Export_Entity_Product extends Mage_ImportExport_
     {
         //Execution time may be very long
         set_time_limit(0);
+        error_reporting( error_reporting() & ~E_NOTICE );
 
         /** @var $collection Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Collection */
         $validAttrCodes  = $this->_getExportAttrCodes();
